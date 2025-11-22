@@ -1,6 +1,7 @@
 # Define the name for the stack
 name: backend-api-stack
 
+
 services:
   # Backend API service configuration...
   backend-api:
