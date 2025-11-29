@@ -1,12 +1,18 @@
-name:backnend-Pipline
+name: backnend-Pipline
+
 on:
   push:
     branches:
       - main
 
 jobs:
-  Unit_test : 
+  Unit_test:
     runs-on: ubuntu-latest
     steps:
-      - run: node --version
-        
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Show Node version
+        run: node --version
