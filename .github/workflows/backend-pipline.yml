@@ -40,4 +40,21 @@ jobs:
 
       - name: push image to dockerhub
         run: docker push chouchenechadha/api-session14
+
+  deployment:
+    runs-on: ubuntu-latest
+    steps:
+      
+      - name: cnct via ssh and deplyment
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USERNAME }}
+          password: ${{ secrets.VPS_PASSWORD }}
+         
+          script: 
+            whoami
+            ls -al
+
+     
           
