@@ -4,6 +4,10 @@ on:
   push:
     branches:
       - main
+env:
+  DOCKER_IMAGE: chouchenechadha/api-session14
+  SERVICE_NAME: Backend
+  PATH_VPS: /home/user/devops14
 
 jobs:
   Unit_test:
@@ -32,10 +36,10 @@ jobs:
       
 
       - name: build docker image
-        run: docker build -t chouchenechadha/api-session14 .
+        run: docker build -t ${{ env.DOCKER_IMAGE }} .
       
       - name: tag docker image
-        run: docker tag chouchenechadha/api-session14 chouchenechadha/api-session14:v${{github.run_number }} 
+        run: docker tag  ${{ env.DOCKER_IMAGE }} ${{ env.DOCKER_IMAGE }}:v${{github.run_number }} 
       
 
 
@@ -48,11 +52,11 @@ jobs:
       
 
       - name: push image to dockerhub
-        run: docker push chouchenechadha/api-session14:v${{github.run_number }} 
+        run: docker push ${{ env.DOCKER_IMAGE }}:v${{github.run_number }} 
 
 
       - name: push image to dockerhub
-        run: docker push chouchenechadha/api-session14
+        run: docker push ${{ env.DOCKER_IMAGE }}
 
       
 
@@ -69,9 +73,9 @@ jobs:
           password: ${{ secrets.VPS_PASSWORD }}
          
           script: |
-            cd /home/user/devops14
-            sudo docker compose down Backend
-            sudo docker compose pull Backend
+            cd ${{ env.PATH_VPS }}
+            sudo docker compose down ${{ env.SERVICE_NAME }}
+            sudo docker compose pull ${{ env.SERVICE_NAME }}
             sudo docker compose up -d --force-recreate
             
 
