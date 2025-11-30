@@ -40,7 +40,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("/hello", (req, res) => {
-  res.send("Hello Le bon developpeur Community ! - new feature 🚀");
+  res.send("Hello Le bon developpeur Community ! - new feature chadha labes ?? 🚀");
 });
 
 app.get("/health", async (req, res) => {
