@@ -52,7 +52,7 @@ jobs:
           username: ${{ secrets.VPS_USERNAME }}
           password: ${{ secrets.VPS_PASSWORD }}
          
-          script: 
+          script: |
             whoami
             ls -al
 
