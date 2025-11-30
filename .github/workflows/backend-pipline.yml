@@ -29,11 +29,13 @@ jobs:
 
 
       
-      - name: tag docker image
-        run: docker tag chouchenechadha/api-session14 chouchenechadha/api-session14:v${{github.run_number }} 
+      
 
       - name: build docker image
         run: docker build -t chouchenechadha/api-session14 .
+      
+      - name: tag docker image
+        run: docker tag chouchenechadha/api-session14 chouchenechadha/api-session14:v${{github.run_number }} 
       
 
 
