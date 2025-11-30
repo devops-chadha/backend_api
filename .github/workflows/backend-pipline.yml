@@ -29,6 +29,10 @@ jobs:
 
       - name: build docker image
         run: docker build -t chouchenechadha/api-session14 .
+      
+
+      - name: tag docker image
+        run: docker tag chouchenechadha/api-session14 chouchenechadha/api-session14:v2
 
        
       - name: Login to Docker Hub
@@ -40,6 +44,10 @@ jobs:
 
       - name: push image to dockerhub
         run: docker push chouchenechadha/api-session14
+
+      - name: push image to dockerhub
+        run: docker push chouchenechadha/api-session14:v2
+
 
   deployment:
     runs-on: ubuntu-latest
